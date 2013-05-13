@@ -22,9 +22,9 @@ It seems easiest to just keep the data directory out of the repository since
 it holds a lot of binary data that shouldn't change _too_ much. The only details
 mentioned here are those that the codebase makes use of.
 
-### `data/` - a top-level directory in the repo. Contains:
+### `data/`
 
-Contains the files: 
+A top-level directory in the repo. Contains:
 
 * `phylogenetic_data.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/phylogenetic_distance.txt). It contains information about the relative phylogenetic distance between bird species.
 * `weather.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/weather.txt). It contains information about the weather during each of the test recordings.
