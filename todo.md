@@ -41,3 +41,14 @@ This model consists of modeling each birdsong as a distribution over MFCCs or
 some other feature set (multivariate gaussian, or maybe something else). Then,
 we simply generate likelihood scores of each birdsong on a sound sample, and
 use this to generate a ranked ordering, thresholding for "yes" votes somehow.
+
+## Model Three: Recurrent Deep Neural Networks~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+
+We could train deep recurrent autoencoders for each bird separately, and for
+testing, use the accuracy of the reconstruction of each autoencoder to
+determine probability distributions over birds. 
+
+We could also create synthetic data where we combine audio from different birds
+to recreate what the test data looks like (multiple overlapping birds) and try
+to train a single network. We need to think more about how this would actually
+work.
