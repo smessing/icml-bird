@@ -1,4 +1,9 @@
 # Dependencies
 
-* Numpy (I installed with homebrew, you want to brew tap homebrew/science).
-* Scipy (Ditto above).
+* Numpy      (pip install numpy)
+* gfortran   (brew install gfortran)
+* Scipy      (pip install scipy)
+* Freetype   (brew install freetype)
+* Matplotlib (pip install matplotlib)
+* iPython    (pip install ipython)
+* Readline   (pip install readline)
