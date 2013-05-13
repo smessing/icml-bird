@@ -1,6 +1,8 @@
 # Research --------------------------------------------------------------------
 
   * Think more about how you might use the phyologenetic or weather data.
+  * Plot the spectrograms of some of the birdsongs to get a sense of what
+    they are like, esp. w/r/t each other.
 
 # Preprocessing Steps ---------------------------------------------------------
 
@@ -36,6 +38,6 @@ HMM.
 ## Model Two: Mixture of Gaussians. ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
 
 This model consists of modeling each birdsong as a distribution over MFCCs or
-some other feature set (multivariate guassian, or maybe something else). Then,
+some other feature set (multivariate gaussian, or maybe something else). Then,
 we simply generate likelihood scores of each birdsong on a sound sample, and
 use this to generate a ranked ordering, thresholding for "yes" votes somehow.
