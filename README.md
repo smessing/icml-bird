@@ -33,14 +33,13 @@ Here is the organization our codebase assumes:
 
 Contains the directories:
 
-* mfcc - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set_features.zip)
+* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set_features.zip)
+* `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set.zip)
 
-* raw - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set.zip)
+### `data/test/`
 
-### `data/test/'
-
-* mfcc - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set_features.zip)
-* raw - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set.zip)
+* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set_features.zip)
+* `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set.zip)
 
 ### `data/submit/`
 
