@@ -28,7 +28,8 @@ A top-level directory in the repo. Contains:
 
 * `phylogenetic_data.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/phylogenetic_distance.txt). It contains information about the relative phylogenetic distance between bird species.
 * `weather.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/weather.txt). It contains information about the weather during each of the test recordings.
-* `species_numbers.csv` - The official map between species and ID number.
+* `species_numbers.csv` - The official map between species and ID number. [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/species_numbers.csv).
+
 
 ###  `data/train/`
 
