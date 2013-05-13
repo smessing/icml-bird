@@ -1,6 +1,7 @@
 """
   loader.py - all code related to loading in training / testing data.
 """
+import numpy as np
 import os
 import scipy.io as io
 
@@ -16,11 +17,10 @@ def load_training_mfccs(species_list):
     species_list: an array of species names, e.g. 'anthus_trivialis'.
 
     Returns a map of species_name -> numpy.ndarray where the ndarray is a D x N
-    array, where D = 7734, the MFCC features and N is the number of samples.
+    array, where D = 16, the MFCC features and N is the number of samples (on
+    the order of ~7,000 for at least some species).
   """
   mfcc_map = {}
-
-  _is_valid_environ()
 
   # scipy.io.loadmat has the annoying property of changing the directory during
   # execution, so we cache the old directory and make sure we return to where
@@ -30,7 +30,8 @@ def load_training_mfccs(species_list):
   for animal in species_list:
     animal_path = _build_training_mfcc_path(animal)
     mfccs = io.loadmat(animal_path)
-    mfcc_map[animal] = mfccs['cepstra']
+    # Matlab files are stored as D x N matrices.
+    mfcc_map[animal] = np.transpose(mfccs['cepstra'])
     pass
 
   os.chdir(original_dir)
@@ -41,19 +42,5 @@ def load_training_mfccs(species_list):
 def _build_training_mfcc_path(animal):
   train_path = "%s/train/mfcc" % os.environ[ICML_BIRD_DATA_PATH]
   return "%s/%s%s.mat" % (train_path, TRAIN_NAME_PARTIAL, animal)
-
-
-def _is_valid_environ():
-  """
-    Check the required environment variables for this module.
-
-    If any required path variables are not found, an exception is raised. The
-    exception includes a message parameter, as well as the specific path
-    variable that was missing.
-  """
-  for path_var in PATH_VARS:
-    if not os.environ.has_key(path_var):
-      print '%s must be defined. See README.md for more information.' % path_var
-      raise Exception('Path variable not found.', path_var)
 
 
