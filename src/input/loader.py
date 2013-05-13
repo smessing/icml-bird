@@ -55,6 +55,5 @@ def _is_valid_environ():
     if not os.environ.has_key(path_var):
       print '%s must be defined. See README.md for more information.' % path_var
       raise Exception('Path variable not found.', path_var)
-  return True
 
 
