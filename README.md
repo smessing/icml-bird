@@ -38,15 +38,15 @@ A top-level directory in the repo. Contains:
 
 Contains the directories:
 
-* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set_features.zip). Associated path variable: `TRAIN_DATA_MFCC_PATH`.
-* `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set.zip)
+* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set_features.zip).
+* `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set.zip).
 
 ### `data/test/`
 
 Contains the directories:
 
-* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set_features.zip)
-* `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set.zip)
+* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set_features.zip).
+* `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/test_set.zip).
 
 ### `data/submit/`
 
