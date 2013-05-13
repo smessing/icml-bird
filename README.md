@@ -11,10 +11,10 @@
 # Environment
 
 ## Bash Variables
-* `TRAIN\_DATA\_MFCC\_PATH` should be defined as the absolute path to the training
+* `TRAIN_DATA_MFCC_PATH` should be defined as the absolute path to the training
   data's MFCC location. E.g.,
 
-    `export TRAIN\_DATA\_MFCC\_PATH="/Users/sam/icml-bird/data/training/mfcc"`
+    `export TRAIN_DATA_MFCC_PATH="/Users/sam/icml-bird/data/training/mfcc"`
 
 ## Data Directory
 
@@ -26,15 +26,15 @@ mentioned here are those that the codebase makes use of.
 
 Contains the files: 
 
-* `phylogenetic\_data.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/phylogenetic_distance.txt). It contains information about the relative phylogenetic distance between bird species.
+* `phylogenetic_data.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/phylogenetic_distance.txt). It contains information about the relative phylogenetic distance between bird species.
 * `weather.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/weather.txt). It contains information about the weather during each of the test recordings.
-* `species\_numbers.csv` - The official map between species and ID number.
+* `species_numbers.csv` - The official map between species and ID number.
 
 ###  `data/train/`
 
 Contains the directories:
 
-* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set_features.zip). Associated path variable: `TRAIN\_DATA\_MFCC\_PATH`.
+* `mfcc/` - [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set_features.zip). Associated path variable: `TRAIN_DATA_MFCC_PATH`.
 * `raw/`- [Link](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/train_set.zip)
 
 ### `data/test/`
