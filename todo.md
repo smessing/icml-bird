@@ -11,6 +11,12 @@
 
 ## Model One: Structured SVM. ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
 
+This model consists of training a separate SVM for each bird, using the rest
+of the species data as negative training examples. Then, at test each SVM is
+asked to classify the test set for their particular bird. We back out
+confidence scores using Viterbi decoding since the SVM is isomorphic to an
+HMM.
+
 * [IN PROGRESS] get all data into SVM file format, one large train file.
   * D x N for training example: 16 x 7734 - with this number of features, will
     probably need to implement some sort of PCA / PCA Whitening. Might also
