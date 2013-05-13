@@ -16,6 +16,18 @@
 
     `export ICML_BIRD_DATA_PATH="/var/data/icml-bird/"`
 
+  This is where all the training data is stored on your computer. See the below
+  section on how to organize it.
+
+* `ICML_BIRD_MODEL_PATH` should be defined as the absolute path to the model
+  directory. E.g.,
+
+    `export ICML_BIRD_DATA_PATH="/var/models/icml-bird/"`
+
+  This is where any special pre-processing data or model parameters will be
+  saved, as well as any predictions / evaluation for a particular model. See
+  below for more information about its organization.
+
 ## Data Directory
 
 It seems easiest to just keep the data directory out of the repository since
@@ -27,7 +39,7 @@ directory in the proper way.
 
 ### `data/`
 
-A top-level directory in the repo. Contains:
+The top-level directory. Contains:
 
 * `phylogenetic_data.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/phylogenetic_distance.txt). It contains information about the relative phylogenetic distance between bird species.
 * `weather.txt` - This file can be found [here](http://www.kaggle.com/c/the-icml-2013-bird-challenge/download/weather.txt). It contains information about the weather during each of the test recordings.
@@ -51,3 +63,9 @@ Contains the directories:
 ### `data/submit/`
 
 This is where we contain our submission files (saved as text files).
+
+## Model Directory
+
+### `models/`
+
+The top-level directory.
