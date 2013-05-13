@@ -11,16 +11,19 @@
 # Environment
 
 ## Bash Variables
-* `TRAIN_DATA_MFCC_PATH` should be defined as the absolute path to the training
-  data's MFCC location. E.g.,
+* `ICML_BIRD_DATA_PATH` should be defined as the absolute path to the data
+  directory. E.g.,
 
-    `export TRAIN_DATA_MFCC_PATH="/Users/sam/icml-bird/data/training/mfcc"`
+    `export ICML_BIRD_DATA_PATH="/var/data/icml-bird/"`
 
 ## Data Directory
 
 It seems easiest to just keep the data directory out of the repository since
 it holds a lot of binary data that shouldn't change _too_ much. The only details
-mentioned here are those that the codebase makes use of.
+mentioned here are those that the codebase makes use of. You can place your
+data directory wherever you wish, so long as you set the path variable
+`ICML_BIRD_DATA_PATH` to point to the correct location, and set up your data
+directory in the proper way.
 
 ### `data/`
 

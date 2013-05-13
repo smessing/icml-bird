@@ -6,8 +6,8 @@ import scipy.io as io
 
 
 TRAIN_NAME_PARTIAL = 'cepst_train_'
-TRAIN_DATA_MFCC_PATH = 'TRAIN_DATA_MFCC_PATH'
-PATH_VARS = [ TRAIN_DATA_MFCC_PATH ]
+ICML_BIRD_DATA_PATH = 'ICML_BIRD_DATA_PATH'
+PATH_VARS = [ ICML_BIRD_DATA_PATH ]
 
 def load_training_mfccs(species_list):
   """
@@ -28,7 +28,7 @@ def load_training_mfccs(species_list):
   original_dir = os.getcwd()
 
   for animal in species_list:
-    animal_path = _build_path(animal)
+    animal_path = _build_training_mfcc_path(animal)
     mfccs = io.loadmat(animal_path)
     mfcc_map[animal] = mfccs['cepstra']
     pass
@@ -38,9 +38,9 @@ def load_training_mfccs(species_list):
   return mfcc_map
 
 
-def _build_path(animal):
-  return "%s/%s%s.mat" % \
-      (os.environ[TRAIN_DATA_MFCC_PATH], TRAIN_NAME_PARTIAL, animal)
+def _build_training_mfcc_path(animal):
+  train_path = "%s/train/mfcc" % os.environ[ICML_BIRD_DATA_PATH]
+  return "%s/%s%s.mat" % (train_path, TRAIN_NAME_PARTIAL, animal)
 
 
 def _is_valid_environ():
