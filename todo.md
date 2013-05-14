@@ -23,7 +23,7 @@ asked to classify the test set for their particular bird. We back out
 confidence scores using Viterbi decoding since the SVM is isomorphic to an
 HMM.
 
-* [IN PROGRESS] get all data into SVM file format, one large train file.
+* [DONE] get all data into SVM file format, one large train file.
   * D x N for training example: 16 x 7734 - with this number of features, will
     probably need to implement some sort of PCA / PCA Whitening. Might also
     want to explore using MVE if PCA gives poor results...
@@ -31,7 +31,7 @@ HMM.
 * [TODO] get test data into SVM file format, separate files for separate
    runs
 
-* [TODO] train model
+* [IN PROGRESS] train model
 
 * [TODO] test model
   * You've yet to address how you're going to solve the problem of generating

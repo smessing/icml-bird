@@ -13,6 +13,7 @@ if __name__ == '__main__':
   # exception and kill execution if a required variable is not defined.
   validator.check_environs()
 
+  # Get the list of names of bird species for which we have data.
   species_list = names.get_species_list()
 
   # Read in the training MFCC data for each species, storing a map of

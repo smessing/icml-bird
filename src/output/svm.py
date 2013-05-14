@@ -31,7 +31,7 @@ def write_species_training_file(
     to train the model.
   """
   species_to_index = names.get_species_to_index_map()
-  out_file = _get_out_file(model_name)
+  out_file = _get_training_file(model_name)
   print 'Writing examples to %s...' % out_file.name
 
   try:
@@ -75,12 +75,24 @@ def _write_training_example(index, label, frames, out_file, opt_comment=""):
     out_file.write(string)
 
 
-def _get_out_file(model_name):
-  filename = _make_out_filename(model_name)
+def _get_training_file(model_name):
+  """
+    Handle generating / opening the training file for this model.
+
+    model_name - The name (string) of the model to create / open the training
+                 file for.
+  """
+  filename = _make_training_filename(model_name)
   return files.ensure_file_exists_and_open(filename)
 
 
-def _make_out_filename(model_name):
+def _make_training_filename(model_name):
+  """
+    Transform a model name into its training filename.
+
+    model_name - The name (string) of the model to make a training filename
+    for.
+  """
   model_path = environ[ICML_BIRD_MODEL_PATH]
   model_dir = "%s/%s" % (model_path, model_name)
   files.ensure_dir_exists(model_dir)
