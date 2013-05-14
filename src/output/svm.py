@@ -31,10 +31,8 @@ def write_species_training_file(
     ICML_BIRD_MODEL_PATH/model_name/train.dat that can be used by svm_hmm_learn
     to train the model.
   """
-  species_to_index = names.get_species_to_index_map()
   out_file = _get_training_file(model_name)
   print 'Writing examples to %s...' % out_file.name
-
   try:
 
     example_num = 1
