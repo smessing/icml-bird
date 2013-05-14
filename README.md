@@ -7,8 +7,16 @@
 * Matplotlib (`pip install matplotlib`)
 * iPython    (`pip install ipython`)
 * Readline   (`pip install readline`)
+* SVM Light ([Link to project](http://svmlight.joachims.org/))
 
 # Environment
+
+## Path
+
+The following programs are assumed to be defined in your PATH:
+
+* `svm_hmm_learn`
+* `svm_hmm_classify`
 
 ## Bash Variables
 * `ICML_BIRD_DATA_PATH` should be defined as the absolute path to the data
