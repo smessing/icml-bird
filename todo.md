@@ -5,6 +5,9 @@
     "bad" it is to make a particular mistake. E.g., labeling A as B vs. labeling
     A as C. Maybe we should increase the weight of confusing birds that are
     phylogenetically more similar?
+    * Maybe you could use phylogenetic distance as part of a distance matrix
+    for some manifold learning algorithm, like MVE or LLE, to try and
+    project the data into some easier space.
   * Plot the spectrograms of some of the birdsongs to get a sense of what
     they are like, esp. w/r/t each other.
 
