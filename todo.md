@@ -1,17 +1,21 @@
-# Research --------------------------------------------------------------------
+# Research
 
-  * Think more about how you might use the phyologenetic or weather data.
+  * Think more about how you might use the phylogenetic or weather data.
+    * There is a way with training structured SVMs to give a weight for how
+    "bad" it is to make a particular mistake. E.g., labeling A as B vs. labeling
+    A as C. Maybe we should increase the weight of confusing birds that are
+    phylogenetically more similar?
   * Plot the spectrograms of some of the birdsongs to get a sense of what
     they are like, esp. w/r/t each other.
 
-# Preprocessing Steps ---------------------------------------------------------
+# Preprocessing Steps
 
   * [TODO] PCA / PCA Whitening
   * MVE?
 
-* Models ----------------------------------------------------------------------
+* Models
 
-## Model One: Structured SVM. ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+## Model One: Many Structured SVM
 
 This model consists of training a separate SVM for each bird, using the rest
 of the species data as negative training examples. Then, at test each SVM is
@@ -35,18 +39,18 @@ HMM.
     SVM-HMM, there should be some way to backout a pseudo arg-max, and
     therefore a probability.
 
-## Model Two: Mixture of Gaussians. ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+## Model Two: Mixture of Gaussians
 
 This model consists of modeling each birdsong as a distribution over MFCCs or
 some other feature set (multivariate gaussian, or maybe something else). Then,
 we simply generate likelihood scores of each birdsong on a sound sample, and
 use this to generate a ranked ordering, thresholding for "yes" votes somehow.
 
-## Model Three: Recurrent Deep Neural Networks~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+## Model Three: Recurrent Deep Neural Networks
 
 We could train deep recurrent autoencoders for each bird separately, and for
 testing, use the accuracy of the reconstruction of each autoencoder to
-determine probability distributions over birds. 
+determine probability distributions over birds.
 
 We could also create synthetic data where we combine audio from different birds
 to recreate what the test data looks like (multiple overlapping birds) and try
