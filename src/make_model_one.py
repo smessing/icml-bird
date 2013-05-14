@@ -1,6 +1,7 @@
 """
-example.py - An example script to show off some of the functionality of the
-             icml-bird codebase.
+make_model_one.py - A script to create the training files for svm_hmm_learn
+    (and in the future, the testing files for svm_hmm_classify) to build model
+    one as described in todo.md.
 """
 from env import validator
 from input import loader, names

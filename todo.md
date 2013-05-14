@@ -18,13 +18,29 @@
 
 * Models
 
-## Model One: Many Structured SVM
+## Model One: Structured SVM
 
-This model consists of training a separate SVM for each bird, using the rest
-of the species data as negative training examples. Then, at test each SVM is
-asked to classify the test set for their particular bird. We back out
-confidence scores using Viterbi decoding since the SVM is isomorphic to an
-HMM.
+This model isnt likely to work well, but it is low-hanging fruit so we might as
+well take the shot. This model consists of training a multi-class, structured
+Support Vector Machine (SVM) Hidden Markov Model (HMM) (this is an SVM where
+the decision boundary is isomorphic to a _k_th order HHMM) on the entire
+training set. Then, at test, we do viterbi decoding and label each frame of a
+test song. Then, to make a decision about which birds are in the song, we rank
+each bird based on the number of consecutive frames labeled as having that bird
+singing. We threshold at a particular number of frames for a yes/no decision,
+and use the number of frames (normalized) as our confidence score for each
+bird.
+
+### Ideas
+
+* Instead of using the confidence score described above, calculate the actual
+  likelihood scores as part of decoding. This may require using something other
+  than viterbi (traditional JT), if viterbi cannot back out probabilities (I
+  just cant remember ATM). It may also require using different code to do
+  the decoding than `svm_hmm_classify` unless that has the ability to give you
+  likelihoods.
+
+### Tasks
 
 * [DONE] get all data into SVM file format, one large train file.
   * D x N for training example: 16 x 7734 - with this number of features, will
