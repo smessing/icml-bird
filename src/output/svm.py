@@ -1,7 +1,8 @@
 """
 svm.py - Everything related to writing files for svm_hmm.
 """
-from input import names, files
+from env import files
+from input import names
 from os import environ
 
 ICML_BIRD_MODEL_PATH = 'ICML_BIRD_MODEL_PATH'
