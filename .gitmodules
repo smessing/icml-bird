@@ -1,6 +1,6 @@
 [submodule "lib/theano-rnn"]
-	path = lib/theano-rnn
+	path = lib/theano_rnn
 	url = git@github.com:barapa/theano-rnn.git
 [submodule "lib/theano-hf"]
-	path = lib/theano-hf
+	path = lib/theano_hf
 	url = git@github.com:barapa/theano-hf.git
