@@ -71,7 +71,8 @@ one at a time.
 
 * [DONE] Write training files (see make_model_two.py)
 
-* [IN PROGRESS] Train model
+* [DONE] Train model
+  * Initial models paramters: c = 0.001 e = 0.1
 
 * [TODO] Test model
 
