@@ -8,6 +8,8 @@
 * iPython    (`pip install ipython`)
 * Readline   (`pip install readline`)
 * SVM Light ([Link to project](http://svmlight.joachims.org/))
+* Scikit-learn (pip install scikit-learn)
+* Theano     (pip install theano)
 
 # Environment
 
