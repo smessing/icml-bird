@@ -71,7 +71,7 @@ one at a time.
 
 * [DONE] Write training files (see make_model_two.py)
 
-* [TODO] Train model
+* [IN PROGRESS] Train model
 
 * [TODO] Test model
 
