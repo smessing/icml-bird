@@ -10,7 +10,10 @@ PATH_VARS = [ ICML_BIRD_MODEL_PATH ]
 
 
 def write_species_training_file(
-    positive_examples, negative_examples, model_name):
+    positive_examples,
+    negative_examples,
+    model_name,
+    opt_training_filename="train.dat"):
   """
     Write a .dat training file for use with svm_hmm_learn.
 
@@ -25,13 +28,17 @@ def write_species_training_file(
         label.
 
     training_data: a dictionary of { species_name : numpy.ndarray }.
+
     model_name: a unique string to use to identify this model.
+
+    opt_training_filename: optional filename to use for training file. If not
+      specified, defaults to "train.dat"
 
     Creates the directory ICML_BIRD_MODEL_PATH/model_name and creates the file
     ICML_BIRD_MODEL_PATH/model_name/train.dat that can be used by svm_hmm_learn
     to train the model.
   """
-  out_file = _get_training_file(model_name)
+  out_file = _get_training_file(model_name, opt_training_filename)
   print 'Writing examples to %s...' % out_file.name
   try:
 
@@ -52,7 +59,7 @@ def write_species_training_file(
   finally:
     out_file.close()
 
-  print '...done.'
+  print '...done'
 
 
 def _write_training_example(index, label, frames, out_file, opt_comment=""):
@@ -74,28 +81,31 @@ def _write_training_example(index, label, frames, out_file, opt_comment=""):
     out_file.write(string)
 
 
-def _get_training_file(model_name):
+def _get_training_file(model_name, training_filename):
   """
     Handle generating / opening the training file for this model.
 
     model_name - The name (string) of the model to create / open the training
                  file for.
   """
-  filename = _make_training_filename(model_name)
+  filename = _make_training_filename(model_name, training_filename)
   return files.ensure_file_exists_and_open(filename)
 
 
-def _make_training_filename(model_name):
+def _make_training_filename(model_name, training_filename):
   """
     Transform a model name into its training filename.
 
     model_name - The name (string) of the model to make a training filename
-    for.
+                 for. Helps in building the path (will create the model's
+                 directory if need be).
+
+    training_filename - The name (string) to use for the actual filename.
   """
   model_path = environ[ICML_BIRD_MODEL_PATH]
   model_dir = "%s/%s" % (model_path, model_name)
   files.ensure_dir_exists(model_dir)
-  out_filename = "%s/train.dat" % (model_dir)
+  out_filename = "%s/%s" % (model_dir, training_filename)
   return out_filename
 
 
