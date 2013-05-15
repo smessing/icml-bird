@@ -1,6 +1,6 @@
 """
-names.py - Everything related to translating between species names of different
-           formats.
+names.py - Everything related to translating between species, locations and
+           times of different formats.
 """
 SPECIES = {
   1: 'aegithalos_caudatus',
@@ -120,3 +120,54 @@ def get_species_to_index_map():
     code representing the given species.
   """
   return SPECIES_INV
+
+
+TESTING_TIMES = [
+  '20090324_063100',
+  '20090326_062700',
+  '20090328_062300',
+  '20090330_061800',
+  '20090401_061400',
+  '20090403_061000',
+  '20090405_060600',
+  '20090407_060200',
+  '20090409_055800',
+  '20090411_055400',
+  '20090413_055000',
+  '20090415_054600',
+  '20090417_054200',
+  '20090419_053900',
+  '20090421_053500',
+  '20090423_053100',
+  '20090425_052800',
+  '20090427_052400',
+  '20090429_052100',
+  '20090501_051700',
+  '20090503_051400',
+  '20090505_051100',
+  '20090507_050800',
+  '20090509_050500',
+  '20090511_050200',
+  '20090513_045900',
+  '20090515_045600',
+  '20090517_045400',
+  '20090520_045000',
+  '20090522_044800'
+]
+
+
+def get_testing_times():
+  """
+    Get a list of the times corresponding to all test recordings.
+  """
+  return TESTING_TIMES
+
+
+TESTING_LOCATIONS = ['A', 'B', 'C']
+
+
+def get_testing_locations():
+  """
+    Get a list of the locations for all test recordings.
+  """
+  return TESTING_LOCATIONS
