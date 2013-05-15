@@ -1,5 +1,0 @@
-MODEL_PATH="${ICML_BIRD_MODEL_PATH}/one"
-TRAIN_PATH="${MODEL_PATH}/train.dat"
-MODEL_SAVE_PATH="${MODEL_PATH}/model.dat"
-
-svm_hmm_learn -c 100 -e 0.1 ${TRAIN_PATH} ${MODEL_SAVE_PATH}
