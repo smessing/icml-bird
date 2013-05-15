@@ -29,5 +29,11 @@ if __name__ == '__main__':
   output.svm.write_species_training_file(
     positive_examples, negative_examples, 'one')
 
+  times = names.get_testing_times()
+  locations = names.get_testing_locations()
+  raw_testing_data = loader.load_testing_mfccs(times, locations)
+
+  # This writes out a testing file to ICML_BIRD_MODEL_PATH/svms/one/test.dat
+  output.svm.write_testing_file(raw_testing_data, 'one')
 
 

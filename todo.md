@@ -48,12 +48,12 @@ make_model_one.py)
     probably need to implement some sort of PCA / PCA Whitening. Might also
     want to explore using MVE if PCA gives poor results...
 
-* [TODO] Get test data into SVM file format, separate files for separate
+* [DONE] Get test data into SVM file format, separate files for separate
    runs
 
 * [IN PROGRESS] Train model
 
-* [TODO] Test model
+* [IN PROGRESS] Test model
   * You've yet to address how you're going to solve the problem of generating
     confidence scores from this discriminative model. Since you are using
     SVM-HMM, there should be some way to backout a pseudo arg-max, and
