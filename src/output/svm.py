@@ -109,12 +109,10 @@ def _make_out_filename(model_name, training_filename):
   return out_filename
 
 
-def write_testing_file(
-    testing_data,
-    model_name,
-    opt_testing_filename="test.dat"):
+def write_testing_files(testing_data, model_name):
   """
-    Write a .dat testing file for use with svm_hmm_classify.
+    Write a .dat testing file for each test recording for use with
+    svm_hmm_classify.
 
     testing_data: A dictionary of {time_and_location : numpy.ndarray} (where
         arrays are size D x N) representing all of the testing recordings to
@@ -126,24 +124,22 @@ def write_testing_file(
     opt_testing_filename: optinal filename to use for testing file. If not
         specified, defaults to "test.dat"
   """
-  out_file = _get_out_file(model_name, opt_testing_filename)
-  print 'Writing testing file: %s...' % out_file.name
-  try:
 
-    example_num = 1
+  example_num = 1
+  for time_and_location in testing_data:
+    label = names.NO_SPECIES_KEY
+    testing_filename = "test_%s.dat" % time_and_location
+    out_file = _get_out_file(model_name, testing_filename)
+    print 'Writing testing file: %s...' % out_file.name
 
-    for time_and_location in testing_data:
-      label = names.NO_SPECIES_KEY
-      _write_example(
-          example_num,
-          label,
-          testing_data[time_and_location],
-          out_file,
-          time_and_location)
-      example_num  += 1
-
-  finally:
-    out_file.close()
+    try:
+      _write_example(example_num,
+                     label,
+                     testing_data[time_and_location],
+                     out_file,
+                     time_and_location)
+    finally:
+      out_file.close()
 
   print '...done'
 
