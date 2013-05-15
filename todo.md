@@ -42,30 +42,46 @@ bird.
 
 ### Tasks
 
-* [DONE] get all data into SVM file format, one large train file.
+* [DONE] get all data into SVM file format, one large train file. (see
+make_model_one.py)
   * D x N for training example: 16 x 7734 - with this number of features, will
     probably need to implement some sort of PCA / PCA Whitening. Might also
     want to explore using MVE if PCA gives poor results...
 
-* [TODO] get test data into SVM file format, separate files for separate
+* [TODO] Get test data into SVM file format, separate files for separate
    runs
 
-* [IN PROGRESS] train model
+* [IN PROGRESS] Train model
 
-* [TODO] test model
+* [TODO] Test model
   * You've yet to address how you're going to solve the problem of generating
     confidence scores from this discriminative model. Since you are using
     SVM-HMM, there should be some way to backout a pseudo arg-max, and
     therefore a probability.
 
-## Model Two: Mixture of Gaussians
+## Model Two: Multiple Structured SVMs.
+
+Goal here is to train a single structured SVM to recognize the call of a signle
+species (we have it label the calls of all other birds as NO_SPECIES). Then in
+turn we have each individual SVM label the same test recording, and back out
+confidence scores + yes/no decision for each species one at a time.
+
+### Tasks
+
+* [DONE] Write training files (see make_model_two.py)
+
+* [TODO] Train model
+
+* [TODO] Test model
+
+## Model Three: Mixture of Gaussians
 
 This model consists of modeling each birdsong as a distribution over MFCCs or
 some other feature set (multivariate gaussian, or maybe something else). Then,
 we simply generate likelihood scores of each birdsong on a sound sample, and
 use this to generate a ranked ordering, thresholding for "yes" votes somehow.
 
-## Model Three: Recurrent Deep Neural Networks
+## Model Four: Recurrent Deep Neural Networks
 
 We could train deep recurrent autoencoders for each bird separately, and for
 testing, use the accuracy of the reconstruction of each autoencoder to
