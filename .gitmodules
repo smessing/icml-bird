@@ -1,3 +1,9 @@
 [submodule "lib/hf-rnn"]
 	path = lib/hf-rnn
 	url = git@github.com:barapa/HF-RNN.git
+[submodule "lib/theano-rnn"]
+	path = lib/theano-rnn
+	url = git@github.com:barapa/theano-rnn.git
+[submodule "lib/theano-hf"]
+	path = lib/theano-hf
+	url = git@github.com:barapa/theano-hf.git
