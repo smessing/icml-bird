@@ -61,10 +61,11 @@ make_model_one.py)
 
 ## Model Two: Multiple Structured SVMs.
 
-Goal here is to train a single structured SVM to recognize the call of a signle
-species (we have it label the calls of all other birds as NO_SPECIES). Then in
-turn we have each individual SVM label the same test recording, and back out
-confidence scores + yes/no decision for each species one at a time.
+Goal here is to train a single structured SVM to recognize the call of a single
+species (we have it label the calls of all other birds in the training set as
+NO_SPECIES). Then in turn we have each individual SVM label the same test
+recording, and back out confidence scores + yes/no decision for each species
+one at a time.
 
 ### Tasks
 
