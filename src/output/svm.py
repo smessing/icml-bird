@@ -6,7 +6,8 @@ from input import names
 from os import environ
 
 ICML_BIRD_MODEL_PATH = 'ICML_BIRD_MODEL_PATH'
-PATH_VARS = [ ICML_BIRD_MODEL_PATH ]
+ICML_BIRD_SVM_DATA_PATH = 'ICML_BIRD_SVM_DATA_PATH'
+PATH_VARS = [ ICML_BIRD_MODEL_PATH, ICML_BIRD_SVM_DATA_PATH ]
 
 
 def write_species_training_file(
@@ -109,7 +110,7 @@ def _make_out_filename(model_name, training_filename):
   return out_filename
 
 
-def write_testing_files(testing_data, model_name):
+def write_testing_files(testing_data):
   """
     Write a .dat testing file for each test recording for use with
     svm_hmm_classify.
@@ -124,12 +125,13 @@ def write_testing_files(testing_data, model_name):
     opt_testing_filename: optinal filename to use for testing file. If not
         specified, defaults to "test.dat"
   """
+  save_location = ICML_BIRD_SVM_DATA_PATH
 
   example_num = 1
   for time_and_location in testing_data:
     label = names.NO_SPECIES_KEY
     testing_filename = "test_%s.dat" % time_and_location
-    out_file = _get_out_file(model_name, testing_filename)
+    out_file = _get_out_file(save_location, testing_filename)
     print 'Writing testing file: %s...' % out_file.name
 
     try:

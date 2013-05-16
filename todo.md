@@ -52,12 +52,20 @@ make_model_one.py)
    runs
 
 * [IN PROGRESS] Train model
+  * We have three models:
+    * Model_one: c = 100, e = 0.1
+    * Relaxed params:  c = 10, e = 0.5 (runtime: 1400 min)
+    * Very relaxed params: c = 0.001, e = 0.5 (runtime: ~ 8 min)
 
 * [IN PROGRESS] Test model
   * You've yet to address how you're going to solve the problem of generating
     confidence scores from this discriminative model. Since you are using
     SVM-HMM, there should be some way to backout a pseudo arg-max, and
     therefore a probability.
+  * [DONE] Test very relaxed params
+  * [TODO] Submit very relaxed params
+  * [TODO] Test relaxed params
+  * [TODO] Submit relaxed params
 
 ## Model Two: Multiple Structured SVMs.
 
