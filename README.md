@@ -32,7 +32,7 @@ The following programs are assumed to be defined in your PATH:
 * `ICML_BIRD_MODEL_PATH` should be defined as the absolute path to the model
   directory. E.g.,
 
-    `export ICML_BIRD_DATA_PATH="/var/models/icml-bird/"`
+    `export ICML_BIRD_MODEL_PATH="/var/models/icml-bird/"`
 
   This is where any special pre-processing data or model parameters will be
   saved, as well as any predictions / evaluation for a particular model. See
