@@ -8,11 +8,12 @@
      the attribute PATH_VARS on the given module.
    - Add the module to the list MODULES in this file. 
 """
+import analysis.svm
 from input import loader
-from output import svm
+import output.svm
 import os
 
-MODULES = [ loader, svm ]
+MODULES = [ analysis.svm, loader, outpt.svm ]
 
 def check_environs(raise_exceptions=True):
   """

@@ -16,7 +16,12 @@
   * [TODO] PCA / PCA Whitening
   * MVE?
 
-* Models
+# Infrastructure
+
+* [TODO] Move all path declarations into env, and have other modules use it so
+  we are not defining the same paths in a lot of different places
+
+# Models
 
 ## Model One: Structured SVM
 
