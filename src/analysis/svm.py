@@ -84,8 +84,10 @@ def _get_predictions(model_dir, model_name):
     # We convert our datetime into _exactly_ what the string should be in the
     # submission file for later convenience.
     datetime = \
-        prediction_filename.split('/')[-1].rstrip('.dat').rstrip(model_name).\
-          lstrip('predictions_') + '.wav'
+        prediction_filename.split('/')[-1].\
+                            rstrip('.dat').\
+                            rstrip(model_name).\
+                            lstrip('predictions_') + '.wav'
 
     predictions_by_datetime[datetime] = predictions_per_species
 
