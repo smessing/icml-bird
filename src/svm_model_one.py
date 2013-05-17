@@ -34,6 +34,6 @@ if __name__ == '__main__':
   raw_testing_data = loader.load_testing_mfccs(times, locations)
 
   # This writes out testing files to ICML_BIRD_MODEL_PATH/svms/*
-  output.svm.write_testing_files(raw_testing_data)
+  #output.svm.write_testing_files(raw_testing_data)
 
 

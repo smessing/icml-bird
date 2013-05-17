@@ -6,14 +6,14 @@
 
    - Define all the requisite variables as a list of strings and define it as
      the attribute PATH_VARS on the given module.
-   - Add the module to the list MODULES in this file. 
+   - Add the module to the list MODULES in this file.
 """
 import analysis.svm
 from input import loader
 import output.svm
 import os
 
-MODULES = [ analysis.svm, loader, outpt.svm ]
+MODULES = [ analysis.svm, loader, output.svm ]
 
 def check_environs(raise_exceptions=True):
   """
