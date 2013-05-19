@@ -23,7 +23,7 @@ def load_training_mfccs(species_list):
     Returns a map of species_name -> dictionary where the dictionary has two
     keys, 'samples' and 'labels':
 
-        'samples' points to a numpy.ndarray where the ndarray is a D x N array,
+        'samples' points to a numpy.ndarray where the ndarray is a N x D array,
         where D = 16, the MFCC features for one sample and N is the number of
         samples.
 
@@ -52,6 +52,35 @@ def load_training_mfccs(species_list):
 
   return mfcc_map
 
+def load_training_mfccs_without_silent_frames(species_list):
+  """
+    Load a series of MFCCS data for a given species list, with all the blank
+    frames removed.
+
+    species_list: an array of species names, e.g. ['anthus_trivialis']
+
+    Returns a map of species_name -> numpy.ndarray, where the ndarray is a 
+    N x D array, where D = 16 and N is the number of samples. 
+
+    Use this instead of load_training_mfccs() if you do not want an frames
+    that don't contain the given bird actually singing
+  """
+  mfcc_no_empty_frames_map = {}
+  all_mfcc_map = load_training_mfccs(species_list)
+  for species_data in all_mfcc_map.items():
+    species = species_data[0]
+
+    labels = species_data[1]['labels']
+    good_labels = [l for l in labels if l != names.NO_SPECIES_KEY]
+
+    labels_np = np.array(species_data[1]['labels'])
+    samples = species_data[1]['samples']
+    good_samples = samples[labels_np != names.NO_SPECIES_KEY]
+    mfcc_no_empty_frames_map[species] = {}
+    mfcc_no_empty_frames_map[species]['samples'] = good_samples
+    mfcc_no_empty_frames_map[species]['labels'] = good_labels
+  
+  return mfcc_no_empty_frames_map
 
 def _build_training_mfcc_path(animal):
   """
