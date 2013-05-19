@@ -46,15 +46,20 @@ def write_species_training_file(
     example_num = 1
 
     for species in positive_examples:
-      label = names.get_index_for_species(species)
-      _write_example(
-          example_num, label, positive_examples[species], out_file, species)
+      _write_example(example_num,
+                     positive_examples[species],
+                     out_file,
+                     True, # use_provided_labels
+                     species)
       example_num += 1
 
     for species in negative_examples:
       label = names.get_index_for_species(names.NO_SPECIES)
-      _write_example(
-          example_num, label, negative_examples[species], out_file, species)
+      _write_example(example_num,
+                     negative_examples[species],
+                     out_file,
+                     False, # use_provided_labels
+                     species)
       example_num += 1
 
   finally:
@@ -63,20 +68,38 @@ def write_species_training_file(
   print '...done'
 
 
-def _write_example(index, label, frames, out_file, opt_comment=""):
+def _write_example(
+    index, species_info, out_file, use_provided_labels, opt_comment=""):
   """
     Write an example to a file.
 
     index - The number to use to identify this example.
-    label - The numeric label for the sequence.
-    frames - an D x N numpy.ndarray.
+
+    species_info - A dictionary with two keys:
+        'samples' - an D x N numpy.ndarray of samples
+        'labels' - a list of N ints corresponding to labels for the individual
+                   samples.
+
     out_file - File descriptor (open, write-enabled).
+
+    use_provided_labels - a boolean indicating whether to use the provided
+        labels in species_info['labels'] or to just use the label
+        names.NO_SPECIES_KEY. If true, use the species_info['labels'].
+
     opt_comment - Optional comment to add at the end of each line of this
                   example. Defaults to the empty string.
   """
-  for frame in frames:
+  label_index = 0
+  labels = species_info['labels']
+  frames = species_info['samples']
+  for i in range(0, len(labels)):
+    frame = frames[i]
     numbered_frame = zip(range(1, len(frame) + 1), frame)
     feature_string = ' '.join(['%s:%s' % (f[0], f[1]) for f in numbered_frame])
+    if use_provided_labels:
+      label = labels[i]
+    else:
+      label = names.NO_SPECIES_KEY
     string = '%d qid:%d %s # %s\n' % \
         (label, index, feature_string, opt_comment)
     out_file.write(string)
