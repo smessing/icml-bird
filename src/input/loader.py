@@ -70,12 +70,15 @@ def load_training_mfccs_without_silent_frames(species_list):
   for species_data in all_mfcc_map.items():
     species = species_data[0]
 
+    # remove labels of NO_SPECIES
     labels = species_data[1]['labels']
     good_labels = [l for l in labels if l != names.NO_SPECIES_KEY]
 
-    labels_np = np.array(species_data[1]['labels'])
+    # remove samples with label NO_SPECIES
     samples = species_data[1]['samples']
+    labels_np = np.array(species_data[1]['labels'])
     good_samples = samples[labels_np != names.NO_SPECIES_KEY]
+
     mfcc_no_empty_frames_map[species] = {}
     mfcc_no_empty_frames_map[species]['samples'] = good_samples
     mfcc_no_empty_frames_map[species]['labels'] = good_labels
